@@ -2,6 +2,10 @@
 
 A example that you can call `alert`, like `Alert.alert` in React Native, everywhere to display an alert dialog.
 
+class component version: **master** branch
+
+hook version: **hook-version** branch
+
 # Example
 
 Use AlertProvider when you render the root component:
