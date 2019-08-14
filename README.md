@@ -2,11 +2,7 @@
 
 A example that you can call `alert`, like `Alert.alert` in React Native, everywhere to display an alert dialog.
 
-# Demo
-
-live demo: https://vincenterc.github.io/react-alert-provider/
-
-# Usage
+# Example
 
 Use AlertProvider when you render the root component:
 ```js
