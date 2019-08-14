@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Alert from './alert'
 
@@ -39,38 +39,32 @@ export const alert = (title, message, options) => {
   setState({ display: true, title, message, cancel, confirm })
 }
 
-class AlertProvider extends React.Component {
-  componentDidMount() {
-    store.listener = this.setState.bind(this)
-  }
+const AlertProvider = ({ children }) => {
+  let { display, title, message, confirm, cancel } = store.state
+  store.listener = useState()[1]
 
-  render() {
-    let { children } = this.props
-    let { display, title, message, confirm, cancel } = store.state
+  return (
+    <>
+      {children}
 
-    return(
-      <>
-        {children}
-
-        {display && (
-          <Alert
-            title={title}
-            message={message}
-            confirmTitle={confirm.text}
-            onConfirm={() => {
-              confirm.onClick && confirm.onClick()
-              setState({ display: false })
-            }}
-            cancelTitle={cancel.text}
-            onCancel={() => {
-              cancel.onClick && cancel.onClick()
-              setState({ display: false })
-            }}
-          />
-        )}
-      </>
-    )
-  }
+      {display && (
+        <Alert
+          title={title}
+          message={message}
+          confirmTitle={confirm.text}
+          onConfirm={() => {
+            confirm.onClick && confirm.onClick()
+            setState({ display: false })
+          }}
+          cancelTitle={cancel.text}
+          onCancel={() => {
+            cancel.onClick && cancel.onClick()
+            setState({ display: false })
+          }}
+        />
+      )}
+    </>
+  )
 }
 
 export default AlertProvider
