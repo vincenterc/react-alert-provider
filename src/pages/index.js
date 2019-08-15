@@ -1,10 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import withPage from '../components/with-page'
 import { alert } from '../components/alert-provider'
 
-export default withPage(() => (
+export default () => (
   <Wrapper>
     <Button
       onClick={() => {
@@ -28,7 +27,7 @@ export default withPage(() => (
       Alert
     </Button>
   </Wrapper>
-))
+)
 
 const Wrapper = styled.div`
   width: 100vw;
